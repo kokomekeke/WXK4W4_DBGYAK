@@ -1,0 +1,8 @@
+a) ALTER TABLE alkatresz ADD uj_ar INT;
+
+b) SELECT nev FROM gyarto WHERE adoszam NOT IN(SELECT gyarto FROM termek);
+
+c) SET @id := 'x';
+   UPDATE Alkatresz SET uj_ar=uj_ar+(uj_ar*10/100) WHERE akod=@id;
+
+d)SELECT nev FROM TERMEK WHERE tkod=(SELECT aru FROM Egysegek WHERE db=(SELECT MAX(db) FROM Egysegek));
