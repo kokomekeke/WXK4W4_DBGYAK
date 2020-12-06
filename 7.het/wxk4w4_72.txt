@@ -1,0 +1,33 @@
+CREATE TABLE GYARTO(
+	adoszam INT PRIMARY KEY,
+	nev VARCHAR(30),
+	telephely VARCHAR(50)
+);
+
+CREATE TABLE TERMEK(
+	tkod INT PRIMARY KEY,
+	nev VARCHAR(50),
+	ear INT,
+	CHECK (ear > 0),
+	gyarto INT,
+	FOREIGN KEY(gyarto) REFERENCES GYARTO(adoszam)
+);
+
+CREATE TABLE ALKATRESZ(
+	akod INT PRIMARY KEY,
+	nev VARCHAR(50)
+);
+
+CREATE TABLE KOMPONENS(
+	termek INT,
+	alkatresz INT,
+	FOREIGN KEY(termek) REFERENCES TERMEK(tkod),
+	FOREIGN KEY(alkatresz) REFERENCES ALKATRESZ(akod)
+);
+
+CREATE TABLE EGYSEGEK(
+	aru INT,
+	db INT,
+	CHECK (db > 0),
+	FOREIGN KEY(aru) REFERENCES TERMEK(tkod)
+);

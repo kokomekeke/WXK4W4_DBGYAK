@@ -1,0 +1,20 @@
+CREATE TABLE TANFOLYAM(
+	tkod INT PRIMARY KEY,
+	ar INT,
+	tipus VARCHAR(40),
+	megnevezes VARCHAR(40)
+);
+
+CREATE TABLE RESZTVEVO(
+	tajszam INT PRIMARY KEY,
+	lakcim VARCHAR(60),
+	nev VARCHAR(30)
+);
+
+CREATE TABLE BEFIZETES(
+	resztvevo INT,
+	tanfolyam INT,
+	befizetes INT,
+	FOREIGN KEY (resztvevo) REFERENCES RESZTVEVO(tajszam),
+	FOREIGN KEY (tanfolyam) REFERENCES TANFOLYAM(tkod)
+);

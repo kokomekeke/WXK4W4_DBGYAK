@@ -1,0 +1,4 @@
+INSERT INTO TERMEKEK("egy","lapát","2000","K1");
+INSERT INTO TERMEKEK("1","NULL","2000","k1");
+INSERT INTO TERMEKEK("3","lapát","-1","k2");
+INSERT INTO TERMEKEK("null","ásó","3","k4");
