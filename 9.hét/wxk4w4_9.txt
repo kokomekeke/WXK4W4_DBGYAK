@@ -1,0 +1,46 @@
+1)
+ნear>x(TERMEK)
+SELECT * FROM TERMEK WHERE ear>X;
+
+Πnev,adoszam(ნtelephely='X'(GYARTO))
+SELECT nev,adoszam FROM GYARTO WHERE telephely='X';
+
+Γcount(ear>x)(TERMEK)
+SELECT COUNT(ear>x) FROM TERMEK;
+
+SELECT tkod FROM TERMEK WHERE nev LIKE %{$tej}% 
+
+SELECT nev FROM GYARTO WHERE telephely IS NULL;
+
+2)
+
+SELECT t.nev, gy.nev FROM TERMEK t INNER JOIN GYARTO gy ON t.gyarto=gy.adoszam;
+SELECT t.nev,t.ear FROM GYARTO gy INNER JOIN TERMEK t ON t.gyarto=gy.adoszam WHERE gy.nev='X';
+SELECT a.nev FROM TERMEK t INNER JOIN KOMPONENS k ON k.termek=t.tkod INNER JOIN ALKATRESZ ON k.alkatresz=a.akod;
+SELECT t.nev FROM TERMEK t INNER JOIN KOMPONENS k ON k.termek=t.tkod INNER JOIN ALKATRESZ ON k.alkatresz=a.akod WHERE a.nev IS NULL;
+
+3)
+
+SELECT tipus, COUNT(*) db FROM tanfolyam GROUP BY tipus;
+SELECT kurzus, COUNT(*) db FROM befizetes GROUP BY kurzus;
+SELECT t.nev, COUNT(*) db FROM befizetes b INNER JOIN tanfolyam t ON
+b.kurzus = t.tkod;
+SELECT t.nev, COUNT(*) db FROM befizetes b INNER JOIN tanfolyam t ON
+b.kurzus = t.tkod WHERE b.befizetes = t.ar;
+SELECT r.lakcim, COUNT(*) db FROM befizetes b INNER JOIN resztvevo r ON
+b.diak = r.tajszam WHERE b.kurzus IN (SELECT tkod FROM tanfolyam;
+
+4)
+
+SELECT COUNT(*) FROM termek WHERE ear > (SELECT avg(ear) FROM termek);
+SELECT nev FROM termek WHERE ear = (SELECT max(ear) FROM termek);
+SELECT nev FROM gyarto WHERE adoszam IN (SELECT gyarto FROM termek WHERE ear = (SELECT max(ear) FROM termek));
+CREATE VIEW gyatlag AS SELECT gy.nev, AVG(gy.ear) mear FROM gyarto t INNER JOIN termek t ON t.gyarto = gy.adoszam GROUP BY gy.nev;
+SELECT nev FROM gyatlag WHERE mear = (SELECT max(mear) FROM gyatlag);
+
+5)
+
+GRANT SELECT ON termekek TO peter;
+SELECT * FROM zoli.termekek;
+CREATE VIEW tnevek AS SELECT nev FROM termekek;
+GRANT SELECT ON tnevek TO PUBLIC;
