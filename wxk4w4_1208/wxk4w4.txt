@@ -1,0 +1,17 @@
+Mutassa be, hogy miben különbözik egymástól a CLI és E-SQL interfészek:
+
+SQL parancs megadása esetén:
+-E-SQL nél változatlan alakban, de egy megadott prefix megadása után történik.
+-CLI esetében függvényhívás argumentumában.  
+
+Adatbázis kapcsolatok: 
+-E-SQL: alapesetben egy adatbázissal kommunikál
+-CLI: több adatbázissal, DB azonosító változó használata
+
+Parancsok jellege:
+-E-SQL: csak SQL
+-CLI: SQL és nem-SQL jellegű parancsok is kiadhatóak
+
+elterjedtség:
+-E-SQL: ritkán használt
+-CLI: elterjedtebb
