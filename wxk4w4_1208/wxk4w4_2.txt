@@ -1,0 +1,8 @@
+2)Mutassa be, milyen lépésekben lehet a Codeblocks-ból
+ az SQLite adatbázist elérni
+
+-SQLite letöltése
+-SQLite adatbázis létrehozása
+-CodeBlocks C projekt létrehozása
+-sqlite3.h header file include-olása
+-sq.lite3c letöltött kódfájl beillesztése a projektbe
